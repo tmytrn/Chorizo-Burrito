@@ -30,7 +30,7 @@ const cleanTweets = (tweets) => {
         obj.pics.push(element);
       }
     } else {
-      if (tweets[i].text.includes('—')) {
+      if (tweets[i].text.includes('—') && tweets[i].entities.urls[0].url) {
         let url = tweets[i].entities.urls[0].url;
         let text = tweets[i].text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
         text = text.replace('—', '');
