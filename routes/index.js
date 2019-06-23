@@ -21,7 +21,7 @@ const cleanTweets = (tweets) => {
       let img = JSON.parse(media.substring(1, media.length - 1));
       let imgLink = img.media_url_https
       let cleanTweet = tweets[i].text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-      if (!cleanTweet.includes("RT") && cleanTweet.includes('—')) {
+      if (cleanTweet.includes('—')) {
         cleanTweet = cleanTweet.replace('—', '');
         let element = {
           description: cleanTweet,
@@ -30,31 +30,38 @@ const cleanTweets = (tweets) => {
         obj.pics.push(element);
       }
     } else {
-      if (tweets[i].text.includes('—') && tweets[i].entities.urls[0].url) {
+      if (tweets[i].entities.urls[0].url) {
         let url = tweets[i].entities.urls[0].url;
-        let text = tweets[i].text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-        text = text.replace('—', '');
-        let link = {
-          url: url,
-          text: text
+        let cleanText = tweets[i].text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+        if (cleanText.includes('—')) {
+          cleanText = cleanText.replace('—', '');
+          let link = {
+            url: url,
+            text: cleanText
+          }
+          console.log(link.cleanText);
+          obj.links.push(link);
+
         }
-        obj.links.push(link);
       }
     }
   }
   return obj;
 }
 
-const params = {exclude_replies: true, count: 50}
+const params = { exclude_replies: true, count: 60 }
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  client.get('statuses/home_timeline', params, function(error, tweets, response){
-    if(!error){
+  client.get('statuses/home_timeline', params, function (error, tweets, response) {
+    if (!error) {
       const obj = cleanTweets(tweets);
       res.render('index', { title: 'Chorizzo', tweets: obj.links, pictures: obj.pics });
 
+    }
+    else {
+      console.log(error);
     }
   });
 

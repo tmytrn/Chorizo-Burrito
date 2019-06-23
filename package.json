@@ -12,10 +12,8 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "newrelic": "^5.10.0",
     "nodemon": "^1.19.1",
     "pug": "^2.0.0-beta11",
-    "relic": "^0.2.0",
     "twitter": "^1.7.1",
     "twitter-node-client": "0.0.6"
   },

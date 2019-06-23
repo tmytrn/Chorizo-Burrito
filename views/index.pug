@@ -12,7 +12,8 @@ block content
     .cf.ph2-ns
       .fl.w-100.w-third-ns.pa2
         each tweet in tweets
-          a(href=tweet.url) !{tweet.text.bold()}
+          p
+            a(href=tweet.url) !{tweet.text.bold()}
       .fl.w-50.w-third-ns.pa2
         article.pa2
           each pic in pictures
