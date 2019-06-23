@@ -30,16 +30,17 @@ const cleanTweets = (tweets) => {
         obj.pics.push(element);
       }
     } else {
-      if (tweets[i].entities.urls[0].url) {
-        let url = tweets[i].entities.urls[0].url;
+      if (tweets[i].entities) {
+        //let url = tweets[i].entities.urls[0].url;
         let cleanText = tweets[i].text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-        if (cleanText.includes('—')) {
+        if (cleanText.includes('—') && !(tweets[i].entities.urls.length == 0)) {
+          console.log(tweets[i].entities);
           cleanText = cleanText.replace('—', '');
+          let url = tweets[i].entities.urls[0].url;
           let link = {
             url: url,
             text: cleanText
           }
-          console.log(link.cleanText);
           obj.links.push(link);
 
         }
