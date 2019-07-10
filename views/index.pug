@@ -1,19 +1,14 @@
 extends layout
 
 block content
-  nav
-  a.link.dim.black.b.f4.tc.db.mb3.mb4-ns(href='#' title='Home')= title
-  .tc.pb3
-    a.link.dim.gray.f6.f5-ns.dib.mr3(href='/about' title='About') About
-    a.link.dim.gray.f6.f5-ns.dib.mr3(href='/store' title='Store') Store
-    a.link.dim.gray.f6.f5-ns.dib(href='/contact' title='Contact') Contact
-
   .mw9.center.ph3-ns
     .cf.ph2-ns
       .fl.w-100.w-third-ns.pa2
         each tweet in tweets
           p
             a(href=tweet.url) !{tweet.text.bold()}
+            //img(src=tweet.image)
+            p=tweet.description
       .fl.w-50.w-third-ns.pa2
         article.pa2
           each pic in pictures
@@ -22,6 +17,8 @@ block content
             img.w-100.f5.measure(src=url alt='Photo of outer space')
       .fl.w-50.w-third-ns.pa2
         article.pa2
+
+
           
         
         
