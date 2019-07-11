@@ -10,3 +10,6 @@ a {
 a:hover{
   color:blue;
 }
+.about-card {
+  margin: 0;
+}
