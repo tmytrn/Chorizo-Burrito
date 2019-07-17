@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -12,4 +12,37 @@ a:hover{
 }
 .about-card {
   margin: 0;
+}
+article {
+  position: relative;
+}
+.author {
+  display: block;
+  position: relative;
+}
+.author img{
+  opacity: 0;
+  position: absolute;
+  transition: transform .3s ease;
+  top: 2px;
+  left: -20px;
+  z-index: 1;
+  width: 15px;
+}
+.author img:hover{  
+  transform: scale(1.5);
+  opacity: 1;
+  width: 30px;
+  height: 30px;
+
+}
+.content img {
+  opacity: 1;
+}
+article.post {
+  transition: .3s ease;
+}
+article.post:hover  img {
+  opacity: 1;
+
 }

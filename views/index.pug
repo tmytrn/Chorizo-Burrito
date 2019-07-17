@@ -3,19 +3,27 @@ extends layout
 block content
   .mw9.center.ph3-ns
     .cf.ph2-ns
-      .fl.w-100.w-third-ns.pa2
+      .fl.w-50.w-third-ns.pa4
         each tweet in tweets
-          p
-            a(href=tweet.url) !{tweet.text.bold()}
-            //img(src=tweet.image)
-            p=tweet.description
-      .fl.w-50.w-third-ns.pa2
-        article.pa2
+          article.post.pb1
+            .author
+              a(href=tweet.source)
+                img(src=tweet.author)
+
+            p
+              a(href=tweet.url) !{tweet.text.bold()}
+            //p=tweet.description
+      .fl.w-50.w-third-ns.pa3
+        article
           each pic in pictures
-            h2.f3= pic.description
-            - var url = pic.link
-            img.w-100.f5.measure(src=url alt='Photo of outer space')
-      .fl.w-50.w-third-ns.pa2
+            article.post
+              .author
+                a(href=pic.source)
+                  img.contrib(src=pic.author)
+              p.f3= pic.description
+              - var url = pic.link
+              img.w-100.f5.measure(src=url alt='Photo of outer space')
+      .fl.w-50.w-third-ns.pa3
         article.pa2
 
 

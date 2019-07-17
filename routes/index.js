@@ -17,7 +17,7 @@ const cleanTweets = (tweets) => {
   obj.pics = [];
 
   for (i = 0; i < tweets.length; i++) {
-    if (tweets[i].text.includes('—')) {
+    if (tweets[i].text.includes('—') && !(tweets[i].text.includes('RT'))) {
       let tweet = tweets[i].text;
       let cleanText = tweet.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
       cleanText = cleanText.replace('—', '');
@@ -37,20 +37,35 @@ const picturePost = (tweet, cleanText) => {
   let media = JSON.stringify(tweet.entities.media);
   let img = JSON.parse(media.substring(1, media.length - 1));
   let imgLink = img.media_url_https;
+  let author = tweet.user.profile_image_url;
+  let source = tweet.id_str;
+  let screenName = tweet.user.screen_name;
+  let sourceLink = 'https://twitter.com/' + screenName + '/status/' + source;
+  //console.log(tweet);
   let element = {
+    source: sourceLink,
     description: cleanText,
-    link: imgLink
+    link: imgLink,
+    author: author
   }
   return element;
 }
 
 const linkPost = (tweet, cleanText) => {
   if (!tweet.entities.urls.length == 0) {
+    // console.log(tweet.user.profile_image_url);
     let url = tweet.entities.urls[0].url;
+    let author = tweet.user.profile_image_url;
+    let source = tweet.id_str;
+    let screenName = tweet.user.screen_name;
+    let sourceLink = 'https://twitter.com/' + screenName + '/status/' + source;
+
 
     let element = {
+      source: sourceLink,
       url: url,
-      text: cleanText
+      text: cleanText,
+      author: author
     }
     return element;
 
@@ -78,7 +93,7 @@ const lookUp = (url) => {
 
 }
 
-const params = { exclude_replies: true, count: 60 }
+const params = { exclude_replies: true, count: 200 }
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -102,12 +117,15 @@ router.get('/', function (req, res, next) {
       //   return element;
       // }).then((data) => {
 
-       res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics });
+      res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics });
 
       // })
 
 
 
+    })
+    .catch((error) => {
+      console.log(error);
     })
 
 
