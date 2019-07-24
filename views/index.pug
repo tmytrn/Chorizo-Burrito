@@ -9,7 +9,6 @@ block content
             .author
               a(href=tweet.source)
                 img(src=tweet.author)
-
             p
               a(href=tweet.url) !{tweet.text.bold()}
             //p=tweet.description
@@ -20,11 +19,24 @@ block content
               .author
                 a(href=pic.source)
                   img.contrib(src=pic.author)
-              p.f3= pic.description
+              p.athletas.f3= pic.description
               - var url = pic.link
               img.w-100.f5.measure(src=url alt='Photo of outer space')
-      .fl.w-50.w-third-ns.pa3
+      .fl.w-40.w-third-ns.pa3
+        p.athletas.music.tc Our Favorite Songs Right Now
         article.pa2
+          iframe(src='https://open.spotify.com/embed/playlist/53SJ6SSjNYgJQftjhBk3Er?si=OMAwcZt8TRm5s4EbQobPLw' width='325' height='400' frameborder='0' allowtransparency='true' allow='encrypted-media')
+        article.pa1.contrib
+          p Contributors
+          p
+            a(href='https://twitter.com/tmytrn') @tmytrn
+          p
+            a(href='https://twitter.com/g3ni3w33ni3') @g3ni3w33i3
+          p
+            a(href='https://twitter.com/bensiordia') @bensiordia
+          p
+            a(href='https://twitter.com/writerdudejoe') @writedudejoe 
+
 
 
           

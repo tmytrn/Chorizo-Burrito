@@ -46,3 +46,18 @@ article.post:hover  img {
   opacity: 1;
 
 }
+.music {
+  font-size: 34px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  line-height: 1.5;
+  font-family: athletas;
+  margin: 0;
+}
+.athletas {
+  font-family: athletas;
+}
+
+.contrib {
+  line-height: 0.5;
+}
