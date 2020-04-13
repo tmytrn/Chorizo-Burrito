@@ -67,6 +67,10 @@ figure {
 article.post {
   transition: .3s ease;
 }
+article.post:hover  img {
+  opacity: 1;
+
+}
 
 
 .music {
