@@ -11,14 +11,15 @@ block content
                 img(src=tweet.author)
             p.headline
               a(href=tweet.url) !{tweet.text}
-            a.preview(href=previews.url)
-              .entity-image
-                figure
-                  img(src=previews.image)
-              .title
-                f3=previews.title
-              .description
-                p=previews.description
+                
+            //- a.preview(href=previews.url)
+            //-   .entity-image
+            //-     figure
+            //-       img(src=previews.image)
+            //-   .title
+            //-     f3=previews.title
+            //-   .description
+            //-     p=previews.description
 
             //p=tweet.description
       .fl.w-50.w-third-ns.pa3
