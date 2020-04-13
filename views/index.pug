@@ -9,8 +9,17 @@ block content
             .author
               a(href=tweet.source)
                 img(src=tweet.author)
-            p
-              a(href=tweet.url) !{tweet.text.bold()}
+            p.headline
+              a(href=tweet.url) !{tweet.text}
+            a.preview(href=previews.url)
+              .entity-image
+                figure
+                  img(src=previews.image)
+              .title
+                f3=previews.title
+              .description
+                p=previews.description
+
             //p=tweet.description
       .fl.w-50.w-third-ns.pa3
         article
@@ -19,30 +28,28 @@ block content
               .author
                 a(href=pic.source)
                   img.contrib(src=pic.author)
-              p.athletas.f3= pic.description
+              p.athletas.f3.pic-post= pic.description
               - var url = pic.link
               img.w-100.f5.measure(src=url alt='Photo of outer space')
       .fl.w-40.w-third-ns.pa3
         p.athletas.music.tc Our Favorite Songs Right Now
-        article.pa2
+        article.pa2.songs
           img(src='/images/TOPSONGS.jpg')
           p.tc We love to share new songs that we find throughout the year. So we created a playlist to share our best picks.
           div.db.tc.relative
             a.f6.link.dim.ph3.pv2.dib.white.bg-black(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=1RTPAGMoRU-bET9OMXBbXQ') Listen
-        //- article.pa1.contrib
-        //-   p Contributors
-        //-   p
-        //-     a(href='https://twitter.com/tmytrn') @tmytrn
-        //-   p
-        //-     a(href='https://twitter.com/g3ni3w33ni3') @g3ni3w33i3
-        //-   p
-        //-     a(href='https://twitter.com/bensiordia') @bensiordia
-        //-   p
-        //-     a(href='https://twitter.com/writerdudejoe') @writedudejoe 
-
-
-
+        p.athletas This website is inspired by 
+          a.link.athletas(href="publicannouncement.org") publicannouncement.org
+        
           
-        
-        
-        
+  .overlay
+  
+  script(src='/scripts/index.js')
+
+
+
+
+
+
+
+

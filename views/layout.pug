@@ -4,11 +4,12 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet' href='https://unpkg.com/tachyons/css/tachyons.min.css')
+    script(src='https://code.jquery.com/jquery-3.4.1.js')
   body
     nav
     a.link.dim.black.b.f4.tc.db.mb3.mb4-ns(href='/' title='Home')= title
     .tc.pb3
       a.link.dim.gray.f6.f5-ns.dib.mr3(href='/about' title='About') About
       a.link.dim.gray.f6.f5-ns.dib.mr3(href='http://shop.chorizoburrito.org' title='Store') Store
-      a.link.dim.gray.f6.f5-ns.dib(href='/places' title='Contact') Our Places
+      //- a.link.dim.gray.f6.f5-ns.dib(href='/places' title='Contact') Our Places
     block content

@@ -36,16 +36,39 @@ article {
   height: 30px;
 
 }
+.preview {
+  position: relative;
+  width: 100%;
+  color: #000;
+  margin-top: 8px;
+  display: none;
+  padding-left: 70px;
+  min-height: 100px;
+}
+.hovering {
+ opacity: 1;
+}
+figure {
+  margin: 0;
+  max-width:20rem;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: repeat;
+}
+.title {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
 .content img {
   opacity: 1;
 }
 article.post {
   transition: .3s ease;
 }
-article.post:hover  img {
-  opacity: 1;
 
-}
+
 .music {
   font-size: 34px;
   padding-left: 2rem;
@@ -53,6 +76,11 @@ article.post:hover  img {
   line-height: 1.5;
   font-family: athletas;
   margin: 0;
+
+}
+
+.songs {
+  border-bottom: 3px solid #e6e6e6;
 }
 .athletas {
   font-family: athletas;
@@ -60,4 +88,18 @@ article.post:hover  img {
 
 .contrib {
   line-height: 0.5;
+}
+
+.headline {
+  font-weight: 700;
+}
+.pic-post {
+  margin-bottom: 0.1rem;
+}
+
+.about-tag{
+  padding-left: 12rem;
+  padding-right: 12rem;
+  margin-top: 12rem;
+  margin-bottom: 12rem;
 }

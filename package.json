@@ -14,7 +14,9 @@
     "morgan": "~1.9.1",
     "nodemon": "^1.19.1",
     "pug": "^2.0.0-beta11",
+    "request": "^2.88.0",
     "request-promise": "^4.2.4",
+    "request-promise-native": "^1.0.7",
     "twitter": "^1.7.1",
     "twitter-node-client": "0.0.6"
   },

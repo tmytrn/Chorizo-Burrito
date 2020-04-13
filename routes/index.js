@@ -78,8 +78,13 @@ const lookUp = (url) => {
   const apiEndPoint = site + '/?key=' + lookUpKey + '&q=' + url;
 
   let options = {
+    method: "GET",
     uri: apiEndPoint,
-    json: true
+    json: true,
+    headers: {
+      q: apiEndPoint,
+      key: lookUpKey,
+    }
   }
 
   return new request(options)
@@ -103,25 +108,22 @@ router.get('/', function (req, res, next) {
       return cleanTweets(tweets);
     })
     .then((tweets) => {
-      let pics = tweets.pics;
-      let links = tweets.links;
-      //const posts = Promise.all(links.map(lookUp));
+      const posts = Object.values(tweets.links);
 
-      // posts.then((data) => {
-      //   let element = {
-      //     imgDescription: data.description,
-      //     img: data.image,
-      //     url: data.url
-
-      //   }
-      //   return element;
-      // }).then((data) => {
-
-      res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics });
-
-      // })
-
-
+      // for(var i = 0; i < posts.length; i++) {
+      //   var obj = posts[i];
+      //   array.push(lookUp(obj.url));
+      // }
+      var obj = posts[0];
+      const pos = lookUp(obj.url)
+      .then((data) => {
+        const preview = data;
+        const links = tweets.links;
+        const pics = tweets.pics;
+        res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics, previews: preview });
+      }).catch((error)=> {
+        console.log(error);
+      });
 
     })
     .catch((error) => {
