@@ -1,15 +1,15 @@
 extends layout
 
 block content
-  .mw9.center.ph3-ns
-    .cf.ph2-ns
-      .fl.w-50.w-third-ns.pa4
+  .w-100.center
+    .cf
+      .fl.w-50.w-30-ns.pr5
         each tweet in tweets
-          article.post.pb1
+          article.post
             .author
               a(href=tweet.source)
                 img(src=tweet.author)
-            p.headline
+            p.f6.f5-l.mt0.link
               a(href=tweet.url) !{tweet.text}
                 
             //- a.preview(href=previews.url)
@@ -22,34 +22,26 @@ block content
             //-     p=previews.description
 
             //p=tweet.description
-      .fl.w-50.w-third-ns.pa3
+      .fl.w-50.w-40-ns
         article
           each pic in pictures
             article.post
-              .author
+              - var url = pic.link
+              img.w-100(src=url)
+              .auth.inline-flex
                 a(href=pic.source)
                   img.contrib(src=pic.author)
-              p.athletas.f3.pic-post= pic.description
-              - var url = pic.link
-              img.w-100.f5.measure(src=url alt='Photo of outer space')
-      .fl.w-40.w-third-ns.pa3
-        p.f2.athletas.music.tc Our Favorite Songs Right Now
-        article.pa2.songs
+                //- p.mt0.mb5= pic.screen_name
+                p.f3.f2-l.mt0.mb5.pic-post= pic.description
+      .fl.w-50.w-30-ns
+        article.pl5
           img(src='/images/TOPSONGS.jpg')
-          p.tc We love to share new songs that we find throughout the year. So we created a playlist to share our best picks.
-          div.db.tc.relative
-            a.f6.link.dim.ph3.pv2.dib.white.bg-black(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=1RTPAGMoRU-bET9OMXBbXQ') Listen
-        .cf.ph2-ns
-          .fl.w-100.w-60-ns.pa2
-            .f5.athletas.music.tc.b TOM FM 102.3
-            article
-              img.cover(src='/images/TOMFM.JPG')
-              p.f7 ONLY THE HITS. Playlist for driving around LA.
-              div.db.tc.relative
-                a.f6.link.dim.ph2.pv1.dib.white.bg-black(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=1RTPAGMoRU-bET9OMXBbXQ') Listen
-          .fl.w-100.w-40-ns.pa2
-            p.athletas.f7 This website is inspired by 
-              a.link.athletas(href="http://publicannouncement.org") publicannouncement.org
+          p.f4.f3-l.link Our Favorite Songs Right Now
+          p We love to share new songs that we find throughout the year. So we created a playlist to share our best picks.
+        article.pl5
+          img.w-100(src='/images/TOMFM.jpg')
+          p.f4.f3-l.link TOM FM 102.3
+          p ONLY THE HITS. Playlist for driving around LA.
 
          
         

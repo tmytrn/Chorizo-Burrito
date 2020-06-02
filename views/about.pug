@@ -1,32 +1,31 @@
 extends layout
 
 block content
-  .flex.justify-center
-    p.f2.athletas.about-tag Chorizo Burrito is a blog, moodboard, and webpage inspired by 
-      a(href="http://publicannouncement.org") publicannouncement.org
-      
-  h3.tc.center Contributors
-  .flex.justify-center
-    article.mw5.bg-white.br3.pa3.pa4-ns.mv3.mr3.ba.b--black-10.about-card
-      .tc
-        a(href="http://tommysrealm.com")
-          img.br-100.h3.w3.dib(src='/images/tommyProfile.jpg' title='Photo of Tommy')
-        h1.f4 Tommy Tran
-        hr.mw3.bb.bw1.b--black-10
-      p.lh-copy.measure.center.f6.black-70
-        | Core developer of chorizoburrito.org. Does web development/design.
-    article.mw5.bg-white.br3.pa3.pa4-ns.mv3.mr3.ba.b--black-10.about-card
-      .tc
-        a(href="http://tommysrealm.com")
-          img.br-100.h3.w3.dib(src='/images/genieProfile.jpg' title='')
-        h1.f4 Genie Hong 
-        hr.mw3.bb.bw1.b--black-10
-      p.lh-copy.measure.center.f6.black-70
-        | Genie Hong is an artist, book maker, photographer, illustrator, and quilter based in Los Angeles and Chicago.
-    article.mw5.bg-white.br3.pa3.pa4-ns.mv3.mr3.ba.b--black-10.about-card
-      .tc
-        img.br-100.h3.w3.dib(src='/images/benProfile.jpg' title='')
-        h1.f4 Benjamin Siordia
-        hr.mw3.bb.bw1.b--black-10
-      p.lh-copy.measure.center.f6.black-70
-        | T-shirts, PRIME playlists, and Larry David memes.
+  .mw9.center
+    .cf
+      .fl.w-two-thirds.pr5
+        img(src='/images/CB_2.jpg')
+        p.f3-ns Chorizo Burrito is a blog, moodboard, and webpage inspired by 
+          a(href="http://publicannouncement.org") publicannouncement.org
+      .fl.w-third
+        p.f3.f2-l.tl.bb.mt0 Contributors
+        article.mv3.about-card
+          .tl
+            img.h4.w4.dib(src='/images/benProfile.jpg' title='')
+            h1.f3 Benjamin Siordia
+          p.lh-copy.f5
+            | T-shirts, PRIME playlists, and Larry David memes.
+        article.mv3.about-card
+          .tl
+            a(href="http://tommysrealm.com")
+            img.h4.w4.dib(src='/images/genieProfile.jpg' title='')
+            h1.f3 Genie Hong 
+          p.lh-copy.f5
+            | Genie Hong is an artist, book maker, photographer, illustrator, and quilter based in Los Angeles and Chicago.
+        article.mv3.about-card
+          .tl
+            a(href="http://tommysrealm.com")
+              img.h4.w4.dib(src='/images/tommyProfile.jpg' title='Photo of Tommy')
+            h1.f3 Tommy Tran
+          p.lh-copy.f5
+            | Core developer of chorizoburrito.org. Does web development/design.

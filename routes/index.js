@@ -37,29 +37,29 @@ const picturePost = (tweet, cleanText) => {
   let media = JSON.stringify(tweet.entities.media);
   let img = JSON.parse(media.substring(1, media.length - 1));
   let imgLink = img.media_url_https;
-  let author = tweet.user.profile_image_url;
   let source = tweet.id_str;
+  let author = tweet.user.profile_image_url;
   let screenName = tweet.user.screen_name;
   let sourceLink = 'https://twitter.com/' + screenName + '/status/' + source;
-  //console.log(tweet);
+  // console.log(tweet);
   let element = {
     source: sourceLink,
     description: cleanText,
     link: imgLink,
-    author: author
+    author: author,
+    screen_name: screenName
   }
   return element;
 }
 
 const linkPost = (tweet, cleanText) => {
   if (!tweet.entities.urls.length == 0) {
-    // console.log(tweet.user.profile_image_url);
+    // console.log(tweet.user.screen_name);
     let url = tweet.entities.urls[0].url;
     let author = tweet.user.profile_image_url;
     let source = tweet.id_str;
     let screenName = tweet.user.screen_name;
     let sourceLink = 'https://twitter.com/' + screenName + '/status/' + source;
-
 
     let element = {
       source: sourceLink,

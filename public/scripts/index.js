@@ -4,4 +4,4 @@ $(".headline").hover(
   }, function() {
     $(".preview").removeClass( "hovering" );
   }
-);.
+);
