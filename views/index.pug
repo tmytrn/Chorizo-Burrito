@@ -4,44 +4,36 @@ block content
   .mw8.center.pt5.bt.mt5
     .cf
       .fl.w-50.w-30-ns
-        .f4.pb1 Links
         each tweet in tweets
-          article.post.pr3
+          article.post.pr3.mb3
+            //- img.w5(src=tweet.image)
             .author
               a(href=tweet.source)
                 img(src=tweet.author)
-            p.f6.f5-l.mt0.link
+            p.f6.f5-l.mv0.link
               a(href=tweet.url) !{tweet.text}
-                
-            //- a.preview(href=previews.url)
-              //- .entity-image
-              //-   figure
-              //-     img(src=previews.image)
-              //- .title
-              //-   f3=previews.title
-              //- .description
-              //-   p=previews.description
+            p.f7.mt0.gray= tweet.display_url
 
-            //p=tweet.description
       .fl.w-50.w-40-ns
-        article
-          each pic in pictures
-            article.post.pr3
-              - var url = pic.link
-              img.w-100(src=url)
-              .auth.inline-flex
-                a(href=pic.source)
-                  img.contrib(src=pic.author)
-                //- p.mt0.mb5= pic.screen_name
-                p.f3.f2-l.mt0.mb5.pic-post= pic.description
+        each pic in pictures
+          article.post.pr3.mb5
+            - var url = pic.link
+            img.w-100(src=url)
+            .w-100
+              a(href=pic.source).w2.fl
+                img.w2.br-100.contrib(src=pic.author)
+              //- p.mt0.mb5= pic.screen_name
+              p.di.f4.f3-l.fw6.mt0.pic-post= pic.description
+
       .fl.w-50.w-30-ns
         article.pl1
-          a.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=0WSsL9TiTW6jHqtAinXT3Q')
+          a.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=LAiY9oXeS0SNYLEztQhHkw')
             .dtc.w3
               img.db.w-100(src='/images/TOPSONGS.jpg')
             .dtc.v-top.pl2
               h1.f6.f5-ns.fw6.lh-title.black.mv0 Our Favorite Songs Right Now
               h2.f6.fw4.mt2.mb0.black-60  We love to share new songs that we find throughout the year. So we created a playlist to share our best picks.
+
         article.pl1
           a.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue(href='https://open.spotify.com/playlist/6PsQP9dajUFhDfJCDVpAup?si=_uFfy8P8SsK92WFALrimyw')
             .dtc.w3
