@@ -1,8 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var Twitter = require('twitter');
+let Twitter = require('twitter');
 var request = require('request-promise');
+const redis = require('redis');
+
 require('dotenv').config();
+
+const REDIS_PORT = process.env.REDIS_URL || 6379;
+
+const cachePort = redis.createClient(REDIS_PORT);
 
 var client = new Twitter({
   consumer_key: process.env.TWIT_CONSUMER_KEY,
@@ -10,6 +16,50 @@ var client = new Twitter({
   access_token_key: process.env.TWIT_ACCESS_KEY,
   access_token_secret: process.env.TWIT_ACCESS_SECRET
 });
+
+let links, pics;
+
+async function getTweets(req, res, next){
+  try{
+    console.log('Fetching Data...');
+
+    const params = { exclude_replies: true, count: 200 }
+    const response = await client.get('statuses/home_timeline', params);
+    // const data = await response.json();
+    tweets = cleanTweets(response);
+
+    cachePort.setex('home', 3600, JSON.stringify(tweets));
+
+    links = tweets.links;
+    pics = tweets.pics;
+    res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics });
+  }
+  catch(e){
+    console.log(e);
+  }
+
+}
+
+function cache(req, res, next) {
+  cachePort.get('home', (err, data) => {
+    if (err) throw err;
+
+    if (data !== null) {
+      data = JSON.parse(data);
+      console.log(data);
+      links = data.links;
+      pics = data.pics;
+      res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics });
+    } else {
+      next();
+    }
+  });
+}
+
+
+
+/* GET home page. */
+router.get('/',cache, getTweets);
 
 const cleanTweets = (tweets) => {
   let obj = {};
@@ -97,41 +147,6 @@ const lookUp = (url) => {
     })
 
 }
-
-const params = { exclude_replies: true, count: 200 }
-
-/* GET home page. */
-router.get('/', function (req, res, next) {
-
-  client.get('statuses/home_timeline', params)
-    .then((tweets) => {
-      return cleanTweets(tweets);
-    })
-    .then((tweets) => {
-      const posts = Object.values(tweets.links);
-
-      // for(var i = 0; i < posts.length; i++) {
-      //   var obj = posts[i];
-      //   array.push(lookUp(obj.url));
-      // }
-      var obj = posts[0];
-      const pos = lookUp(obj.url)
-      .then((data) => {
-        const preview = data;
-        const links = tweets.links;
-        const pics = tweets.pics;
-        res.render('index', { title: 'Chorizo Burrito', tweets: links, pictures: pics, previews: preview });
-      }).catch((error)=> {
-        console.log(error);
-      });
-
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-
-
-});
 
 
 module.exports = router;

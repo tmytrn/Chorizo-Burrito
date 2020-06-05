@@ -1,11 +1,12 @@
 extends layout
 
 block content
-  .w-100.center
+  .mw8.center.pt5.bt.mt5
     .cf
-      .fl.w-50.w-30-ns.pr5
+      .fl.w-50.w-30-ns
+        .f4.pb1 Links
         each tweet in tweets
-          article.post
+          article.post.pr3
             .author
               a(href=tweet.source)
                 img(src=tweet.author)
@@ -13,19 +14,19 @@ block content
               a(href=tweet.url) !{tweet.text}
                 
             //- a.preview(href=previews.url)
-            //-   .entity-image
-            //-     figure
-            //-       img(src=previews.image)
-            //-   .title
-            //-     f3=previews.title
-            //-   .description
-            //-     p=previews.description
+              //- .entity-image
+              //-   figure
+              //-     img(src=previews.image)
+              //- .title
+              //-   f3=previews.title
+              //- .description
+              //-   p=previews.description
 
             //p=tweet.description
       .fl.w-50.w-40-ns
         article
           each pic in pictures
-            article.post
+            article.post.pr3
               - var url = pic.link
               img.w-100(src=url)
               .auth.inline-flex
@@ -34,16 +35,20 @@ block content
                 //- p.mt0.mb5= pic.screen_name
                 p.f3.f2-l.mt0.mb5.pic-post= pic.description
       .fl.w-50.w-30-ns
-        article.pl5
-          img(src='/images/TOPSONGS.jpg')
-          a(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=0WSsL9TiTW6jHqtAinXT3Q')
-            p.f4.f3-l.link Our Favorite Songs Right Now
-          p We love to share new songs that we find throughout the year. So we created a playlist to share our best picks.
-        article.pl5
-          img.w-100(src='/images/TOMFM.jpg')
-          a(href='https://open.spotify.com/playlist/6PsQP9dajUFhDfJCDVpAup?si=_uFfy8P8SsK92WFALrimyw')
-            p.f4.f3-l.link TOM FM 102.3
-          p ONLY THE HITS. Playlist for driving around LA.
+        article.pl1
+          a.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue(href='https://open.spotify.com/playlist/53SJ6SSjNYgJQftjhBk3Er?si=0WSsL9TiTW6jHqtAinXT3Q')
+            .dtc.w3
+              img.db.w-100(src='/images/TOPSONGS.jpg')
+            .dtc.v-top.pl2
+              h1.f6.f5-ns.fw6.lh-title.black.mv0 Our Favorite Songs Right Now
+              h2.f6.fw4.mt2.mb0.black-60  We love to share new songs that we find throughout the year. So we created a playlist to share our best picks.
+        article.pl1
+          a.link.dt.w-100.bb.b--black-10.pb2.mt2.dim.blue(href='https://open.spotify.com/playlist/6PsQP9dajUFhDfJCDVpAup?si=_uFfy8P8SsK92WFALrimyw')
+            .dtc.w3
+              img.db.w-100(src='/images/TOMFM.jpg')
+            .dtc.v-top.pl2
+              h1.f6.f5-ns.fw6.lh-title.black.mv0 TOM FM 102.3
+              h2.f6.fw4.mt2.mb0.black-60 ONLY THE HITS. Playlist for driving around LA.
 
          
         
