@@ -17,6 +17,16 @@ html
     meta(name='twitter:image' content='http://www.chorizoburrito.org/images/CB_2.jpg')
 
     script(src='https://code.jquery.com/jquery-3.4.1.js')
+    script(type='text/javascript' src='https://makerbadge.s3.amazonaws.com/blmbadge.js')
+    script.
+      BLMBadge.init({
+      layout:1,
+      theme:'light',
+      promoText : 'Send a donation to ReclaimTheBlock.org'+String.fromCodePoint(0x2192),
+      promoLink : 'https://www.reclaimtheblock.org/home/',
+      message : 'To be silent is to be complicit. Black lives matter.',
+      title : '#BlackLivesMatter'
+      })
   body
     nav.center.mw8.border-box
       a.fl.link.dim.f2.f1-l.w-60.w-50-l(href='/' title='Home')= title
