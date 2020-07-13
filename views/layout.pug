@@ -19,6 +19,12 @@ html
 
     script(src='https://code.jquery.com/jquery-3.4.1.js')
     script(type='text/javascript' src='https://makerbadge.s3.amazonaws.com/blmbadge.js')
+    script(src='https://www.googletagmanager.com/gtag/js?id=UA-165303040-2')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-165303040-2');
     script.
       BLMBadge.init({
       layout: 2,
