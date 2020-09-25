@@ -126,3 +126,6 @@ article.post:hover  img {
   margin-top: 12rem;
   margin-bottom: 12rem;
 }
+.spaced-out{
+  letter-spacing:.05rem;
+}
