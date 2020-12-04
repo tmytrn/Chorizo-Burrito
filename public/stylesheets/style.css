@@ -1,6 +1,12 @@
 body {
   padding: 50px;
 }
+.f-mega{
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 288px;
+}
 .f1{
   font-family: neue-haas-grotesk-display, sans-serif;
   font-weight: 600;
@@ -128,4 +134,14 @@ article.post:hover  img {
 }
 .spaced-out{
   letter-spacing:.05rem;
+}
+canvas {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:-1;
+}
+
+@media only screen and (max-width: 600px) {
+  .f-mega {font-size: 6rem;}
 }
