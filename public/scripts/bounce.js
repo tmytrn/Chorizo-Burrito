@@ -1,4 +1,5 @@
 var context;
+var img;
 var x = 100;
 var y = 200;
 // var x1 = 200;
@@ -30,17 +31,17 @@ function init() {
   // img3 = document.getElementById("genie");
   // img4 = document.getElementById("brandon");
   // if (context.canvas.width < 380) {
-    dx = -2;
-    dy = 2;
-    // dx1 = 1.3;
-    // dy1 = 1.3;
-    // dx2 = -1.3;
-    // dy2 = -1.3;
-    // dx3 = 1.3;
-    // dy3 = 1.3;
-    // dx4 = -1.3;
-    // dy4 = -1.3;
-  }
+  dx = -2;
+  dy = 2;
+  // dx1 = 1.3;
+  // dy1 = 1.3;
+  // dx2 = -1.3;
+  // dy2 = -1.3;
+  // dx3 = 1.3;
+  // dy3 = 1.3;
+  // dx4 = -1.3;
+  // dy4 = -1.3;
+
   setInterval(draw, 10);
 }
 
