@@ -5,7 +5,7 @@ body {
   font-family: neue-haas-grotesk-display, sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 288px;
+  font-size: 6rem;
 }
 .f1{
   font-family: neue-haas-grotesk-display, sans-serif;
@@ -141,7 +141,13 @@ canvas {
   top:0;
   z-index:-1;
 }
+.album {
+  width: 100%;
+}
 
-@media only screen and (max-width: 600px) {
-  .f-mega {font-size: 6rem;}
+@media only screen and (min-width: 900px) {
+  .f-mega {font-size: 288px;}
+  .album {
+    width:20%;
+  }
 }
