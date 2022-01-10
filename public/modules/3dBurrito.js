@@ -44,7 +44,13 @@ function init() {
 
   renderer = new WebGLRenderer({ antialias: true, alpha: true });
   renderer.setClearColor(0x000000, 0);
-  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  if (window.innerWidth < 400) {
+    renderer.setSize(350, 350);
+    renderer.domElement.className = "burrito_canvas";
+  } else {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
   document.body.appendChild(renderer.domElement);
   let controls = new OrbitControls(camera, renderer.domElement);
   controls.addEventListener("change", render);

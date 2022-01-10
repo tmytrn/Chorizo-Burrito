@@ -147,6 +147,12 @@ canvas {
 .album {
   width: 100%;
 }
+.burrito_canvas {
+  margin: 0 auto;
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% - 175px);
+}
 
 @media only screen and (min-width: 900px) {
   .f-mega {
