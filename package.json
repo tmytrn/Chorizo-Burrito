@@ -20,7 +20,7 @@
     "request-promise": "^4.2.4",
     "request-promise-native": "^1.0.7",
     "spotify-web-api-node": "^4.0.0",
-    "three": "^0.136.0",
+    "three": "^0.137.0",
     "twitter": "^1.7.1",
     "twitter-node-client": "0.0.6"
   },
